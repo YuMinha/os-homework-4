@@ -1,7 +1,7 @@
 name: Autograding Tests
 'on':
-- workflow_dispatch
-- repository_dispatch
+  - workflow_dispatch
+  - repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -11,100 +11,100 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Missed arguments test
-      id: missed-arguments-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Missed arguments test
-        setup-command: ''
-        command: make test ARG=1
-        timeout: 10
-        max-score: 10
-    - name: Square file size test
-      id: square-file-size-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Square file size test
-        setup-command: ''
-        command: make test ARG=1
-        timeout: 10
-        max-score: 10
-    - name: File size match test
-      id: file-size-match-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: File size match test
-        setup-command: ''
-        command: make test ARG=3
-        timeout: 10
-        max-score: 10
-    - name: 2 x 2 matrix test
-      id: 2-x-2-matrix-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: 2 x 2 matrix test
-        setup-command: ''
-        command: make test ARG=4
-        timeout: 10
-        max-score: 10
-    - name: 10 x 10 matrix test
-      id: 10-x-10-matrix-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: 10 x 10 matrix test
-        setup-command: ''
-        command: make test ARG=5
-        timeout: 10
-        max-score: 10
-    - name: 100 x 100 matrix test
-      id: 100-x-100-matrix-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: 100 x 100 matrix test
-        setup-command: ''
-        command: make test ARG=6
-        timeout: 10
-        max-score: 10
-    - name: 1024 x 1024 matrix test
-      id: 1024-x-1024-matrix-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: 1024 x 1024 matrix test
-        setup-command: ''
-        command: make test ARG=7
-        timeout: 10
-        max-score: 10
-    - name: Threads run in parallel
-      id: threads-run-in-parallel
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Threads run in parallel
-        setup-command: ''
-        command: make test ARG=8
-        timeout: 10
-        max-score: 15
-    - name: Thread pool works test
-      id: thread-pool-works-test
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Thread pool works test
-        setup-command: ''
-        command: make test ARG=9
-        timeout: 10
-        max-score: 15
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        MISSED-ARGUMENTS-TEST_RESULTS: "${{steps.missed-arguments-test.outputs.result}}"
-        SQUARE-FILE-SIZE-TEST_RESULTS: "${{steps.square-file-size-test.outputs.result}}"
-        FILE-SIZE-MATCH-TEST_RESULTS: "${{steps.file-size-match-test.outputs.result}}"
-        2-X-2-MATRIX-TEST_RESULTS: "${{steps.2-x-2-matrix-test.outputs.result}}"
-        10-X-10-MATRIX-TEST_RESULTS: "${{steps.10-x-10-matrix-test.outputs.result}}"
-        100-X-100-MATRIX-TEST_RESULTS: "${{steps.100-x-100-matrix-test.outputs.result}}"
-        1024-X-1024-MATRIX-TEST_RESULTS: "${{steps.1024-x-1024-matrix-test.outputs.result}}"
-        THREADS-RUN-IN-PARALLEL_RESULTS: "${{steps.threads-run-in-parallel.outputs.result}}"
-        THREAD-POOL-WORKS-TEST_RESULTS: "${{steps.thread-pool-works-test.outputs.result}}"
-      with:
-        runners: missed-arguments-test,square-file-size-test,file-size-match-test,2-x-2-matrix-test,10-x-10-matrix-test,100-x-100-matrix-test,1024-x-1024-matrix-test,threads-run-in-parallel,thread-pool-works-test
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Missed arguments test
+        id: missed_arguments_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Missed arguments test
+          setup-command: ''
+          command: make test ARG=1
+          timeout: 10
+          max-score: 10
+      - name: Square file size test
+        id: square_file_size_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Square file size test
+          setup-command: ''
+          command: make test ARG=2
+          timeout: 10
+          max-score: 10
+      - name: File size match test
+        id: file_size_match_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: File size match test
+          setup-command: ''
+          command: make test ARG=3
+          timeout: 10
+          max-score: 10
+      - name: 2 x 2 matrix test
+        id: two_x_two_matrix_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 2 x 2 matrix test
+          setup-command: ''
+          command: make test ARG=4
+          timeout: 10
+          max-score: 10
+      - name: 10 x 10 matrix test
+        id: ten_x_ten_matrix_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 10 x 10 matrix test
+          setup-command: ''
+          command: make test ARG=5
+          timeout: 10
+          max-score: 10
+      - name: 100 x 100 matrix test
+        id: hundred_x_hundred_matrix_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 100 x 100 matrix test
+          setup-command: ''
+          command: make test ARG=6
+          timeout: 10
+          max-score: 10
+      - name: 1024 x 1024 matrix test
+        id: one_thousand_twenty_four_x_one_thousand_twenty_four_matrix_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: 1024 x 1024 matrix test
+          setup-command: ''
+          command: make test ARG=7
+          timeout: 10
+          max-score: 10
+      - name: Threads run in parallel
+        id: threads_run_in_parallel
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Threads run in parallel
+          setup-command: ''
+          command: make test ARG=8
+          timeout: 10
+          max-score: 15
+      - name: Thread pool works test
+        id: thread_pool_works_test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Thread pool works test
+          setup-command: ''
+          command: make test ARG=9
+          timeout: 10
+          max-score: 15
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          MISSED_ARGUMENTS_TEST_RESULTS: ${{ steps.missed_arguments_test.outputs.result }}
+          SQUARE_FILE_SIZE_TEST_RESULTS: ${{ steps.square_file_size_test.outputs.result }}
+          FILE_SIZE_MATCH_TEST_RESULTS: ${{ steps.file_size_match_test.outputs.result }}
+          TWO_X_TWO_MATRIX_TEST_RESULTS: ${{ steps.two_x_two_matrix_test.outputs.result }}
+          TEN_X_TEN_MATRIX_TEST_RESULTS: ${{ steps.ten_x_ten_matrix_test.outputs.result }}
+          HUNDRED_X_HUNDRED_MATRIX_TEST_RESULTS: ${{ steps.hundred_x_hundred_matrix_test.outputs.result }}
+          ONE_THOUSAND_TWENTY_FOUR_X_ONE_THOUSAND_TWENTY_FOUR_MATRIX_TEST_RESULTS: ${{ steps.one_thousand_twenty_four_x_one_thousand_twenty_four_matrix_test.outputs.result }}
+          THREADS_RUN_IN_PARALLEL_RESULTS: ${{ steps.threads_run_in_parallel.outputs.result }}
+          THREAD_POOL_WORKS_TEST_RESULTS: ${{ steps.thread_pool_works_test.outputs.result }}
+        with:
+          runners: missed_arguments_test,square_file_size_test,file_size_match_test,two_x_two_matrix_test,ten_x_ten_matrix_test,hundred_x_hundred_matrix_test,one_thousand_twenty_four_x_one_thousand_twenty_four_matrix_test,threads_run_in_parallel,thread_pool_works_test
