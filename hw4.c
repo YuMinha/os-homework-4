@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
         pthread_create(&threads[i], NULL, worker_thread, arg);
     }
 
-    // Gaussian Elimination Phase
+    
     for (int col = 0; col < size - 1; col++) {
         for (int row = col + 1; row < size; row++) {
             enqueue((Task){row, col, GAUSSIAN});
@@ -159,7 +159,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Back Substitution Phase
     for (int row = size - 1; row >= 0; row--) {
         enqueue((Task){row, row, BACK_SUB});
         for (int col = 0; col < row; col++) {
@@ -170,7 +169,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Send termination tasks to all workers
     for (int i = 0; i < nt; i++) {
         enqueue((Task){-1, -1, TERMINATE});
     }
