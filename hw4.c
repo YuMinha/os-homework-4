@@ -29,6 +29,7 @@ Semaphore full, empty, mutex, gaussian_sem, backsub_sem;
 double *A, *B, *X;
 int size, nt;
 
+
 void argCheck(int argc, char *argv[]) {
     if (argc != 5) {
         fprintf(stderr, "Usage: %s <mat> <invec> <outvec> <n>\n", argv[0]);
